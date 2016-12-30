@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 1;
+    console.log(this == window);  // true
+    console.log(this.a);   // 1
+
+    function test1() {
+        console.log(this == window);  // true
+    }
+
+    var object1 = {
+        test : function() {
+            console.log(this == object1);  // true
+            (function() {
+                console.log(this == object1);  // false
+                console.log(this == window); //true
+                console.log(this.a);  // 1
+            }())
+        } ,
+        test2 : function() {
+            console.log(this == object1);  // true
+            var that = this;
+            (function() {
+                console.log(that == object1);  // true
+                console.log(that==window); //false
+            })()
+        }
+    }
+
+
+    test1();
+    object1.test();
+    object1.test2();
+
+
+</script>
+</body>
+</html>

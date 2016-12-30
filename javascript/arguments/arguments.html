@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * apply()메서드를 활용한 arguments객체의 배열 표준 메서드 slice()활용 코드
+     */
+
+
+    function myFunction() {
+        console.dir(arguments);
+
+        //arguments 객체를 배열로 변환
+        //var args = Array.prototype.slice.apply(arguments);    //기존
+        let args = Array.from(arguments);   //ES6
+        console.dir(args);
+
+    }
+
+    myFunction(1,2,3);
+
+</script>
+
+</body>
+</html>
